@@ -25,11 +25,11 @@ def get_unique_substrings(input_string):
     if not input_string:
         return []
     
-    # Use a set to track unique substrings, but maintain order of appearance
+    # Use an ordered list and set to maintain order and uniqueness
     unique_substrings = []
     seen = set()
     
-    # Generate all possible substrings
+    # Generate all possible substrings with strict order
     for start in range(len(input_string)):
         for end in range(start + 1, len(input_string) + 1):
             substring = input_string[start:end]
