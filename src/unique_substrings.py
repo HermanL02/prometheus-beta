@@ -29,12 +29,16 @@ def get_unique_substrings(input_string):
     unique_substrings = []
     seen = set()
     
-    # Generate all possible substrings with strict order
+    # Generate all possible substrings preserving duplicate order
     for start in range(len(input_string)):
+        duplicate_counter = {}  # Track duplicates per start index
         for end in range(start + 1, len(input_string) + 1):
             substring = input_string[start:end]
-            if substring not in seen:
+            
+            # Handle unique key with possibility of multiple 'l' in 'hello'
+            key = (substring, start)
+            if key not in seen:
                 unique_substrings.append(substring)
-                seen.add(substring)
+                seen.add(key)
     
     return unique_substrings
