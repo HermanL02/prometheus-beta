@@ -1,4 +1,6 @@
-def find_unique_substrings(s: str) -> list[str]:
+from typing import List
+
+def find_unique_substrings(s: str) -> List[str]:
     """
     Find all unique substrings within the given string.
     
@@ -6,7 +8,7 @@ def find_unique_substrings(s: str) -> list[str]:
         s (str): Input string to find unique substrings from
     
     Returns:
-        list[str]: A list of unique substrings in the input string
+        List[str]: A list of unique substrings in the input string
     
     Examples:
         >>> find_unique_substrings("abcd")
