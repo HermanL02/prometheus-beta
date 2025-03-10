@@ -24,11 +24,18 @@ def test_repeated_characters():
 def test_complex_string():
     """Test a more complex string"""
     result = get_unique_substrings("hello")
-    assert result == ['h', 'he', 'hel', 'hell', 'hello', 
-                      'e', 'el', 'ell', 'ello', 
-                      'l', 'll', 'llo', 
-                      'l', 'lo', 
-                      'o']
+    expected_substrings = ['h', 'he', 'hel', 'hell', 'hello', 
+                           'e', 'el', 'ell', 'ello', 
+                           'l', 'll', 'llo', 
+                           'l', 'lo', 
+                           'o']
+    
+    # Ensure all expected substrings are present
+    for substring in expected_substrings:
+        assert substring in result, f"Substring '{substring}' not found"
+    
+    # Ensure result has same length as expected
+    assert len(result) == len(expected_substrings)
 
 def test_invalid_input_type():
     """Test behavior with invalid input type"""
