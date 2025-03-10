@@ -1,41 +1,34 @@
-def get_unique_substrings(input_string):
+from typing import List
+
+def find_unique_substrings(s: str) -> List[str]:
     """
-    Generate all unique substrings of the given input string.
+    Find all unique substrings within the given string.
     
     Args:
-        input_string (str): The input string to extract unique substrings from.
+        s (str): Input string to find unique substrings from
     
     Returns:
-        list: A list of unique substrings sorted in order of appearance.
-    
-    Raises:
-        TypeError: If input is not a string.
+        List[str]: A list of unique substrings in the input string
     
     Examples:
-        >>> get_unique_substrings("abc")
-        ['a', 'ab', 'abc', 'b', 'bc', 'c']
-        >>> get_unique_substrings("")
+        >>> find_unique_substrings("abcd")
+        ['a', 'ab', 'abc', 'abcd', 'b', 'bc', 'bcd', 'c', 'cd', 'd']
+        >>> find_unique_substrings("")
         []
+        >>> find_unique_substrings("aaa")
+        ['a', 'aa', 'aaa']
     """
-    # Input validation
-    if not isinstance(input_string, str):
-        raise TypeError("Input must be a string")
-    
-    # If the input is empty, return an empty list
-    if not input_string:
+    # Handle empty string case
+    if not s:
         return []
     
-    # Generate unique substrings
-    unique_substrings = []
-    seen = set()
+    # Use a set to store unique substrings
+    unique_substrings = set()
     
-    for start in range(len(input_string)):
-        for end in range(start + 1, len(input_string) + 1):
-            substring = input_string[start:end]
-            
-            # Only add if not already in unique_substrings
-            if substring not in seen:
-                unique_substrings.append(substring)
-                seen.add(substring)
+    # Generate all possible substrings
+    for start in range(len(s)):
+        for end in range(start + 1, len(s) + 1):
+            unique_substrings.add(s[start:end])
     
-    return unique_substrings
+    # Convert set to sorted list for consistent output
+    return sorted(list(unique_substrings))
