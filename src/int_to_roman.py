@@ -1,28 +1,29 @@
-def int_to_roman(num: int) -> str:
+def int_to_roman(num):
     """
-    Convert a non-negative integer to its Roman numeral representation.
+    Convert an integer to its Roman numeral representation.
     
     Args:
-        num (int): An integer between 0 and 3999 (inclusive).
+        num (int): Non-negative integer between 0 and 3999.
     
     Returns:
-        str: The Roman numeral representation of the input number.
+        str: Roman numeral representation of the input number.
     
     Raises:
-        ValueError: If the input is not between 0 and 3999.
+        TypeError: If input is not an integer.
+        ValueError: If input is outside the valid range (0-3999).
     """
-    # Validate input range
+    # Input validation
     if not isinstance(num, int):
         raise TypeError("Input must be an integer")
     
     if num < 0 or num > 3999:
         raise ValueError("Input must be between 0 and 3999")
     
-    # Special case for 0
+    # Special case for zero
     if num == 0:
         return ""
     
-    # Define Roman numeral symbols and their corresponding values
+    # Roman numeral symbols from largest to smallest
     roman_map = [
         (1000, 'M'),
         (900, 'CM'),
@@ -39,7 +40,7 @@ def int_to_roman(num: int) -> str:
         (1, 'I')
     ]
     
-    # Build Roman numeral by iteratively subtracting largest possible values
+    # Build Roman numeral string
     result = []
     for value, symbol in roman_map:
         while num >= value:
