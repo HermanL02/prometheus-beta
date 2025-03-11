@@ -35,6 +35,6 @@ def test_unique_substrings_long_string():
     expected = ['h', 'he', 'hel', 'hell', 'hello', 
                 'e', 'el', 'ell', 'ello', 
                 'l', 'll', 'llo', 
-                'l', 'lo', 
+                'lo', 
                 'o']
     assert sorted(result) == sorted(expected)
