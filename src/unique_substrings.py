@@ -1,28 +1,34 @@
 from typing import List
 
-def find_unique_substrings(s: str) -> List[str]:
+def get_unique_substrings(s: str) -> List[str]:
     """
-    Find all unique substrings within the given string.
+    Generate all unique substrings within the given string.
     
     Args:
-        s (str): Input string to find unique substrings from
+        s (str): Input string to extract unique substrings from.
     
     Returns:
-        List[str]: A list of unique substrings in the input string
+        List[str]: A list of unique substrings in the input string.
     
     Examples:
-        >>> find_unique_substrings("abcd")
-        ['a', 'ab', 'abc', 'abcd', 'b', 'bc', 'bcd', 'c', 'cd', 'd']
-        >>> find_unique_substrings("")
+        >>> get_unique_substrings('abcb')
+        ['a', 'ab', 'abc', 'abcb', 'b', 'bc', 'bcb', 'c', 'cb']
+        >>> get_unique_substrings('')
         []
-        >>> find_unique_substrings("aaa")
+        >>> get_unique_substrings('abcd')
+        ['a', 'ab', 'abc', 'abcd', 'b', 'bc', 'bcd', 'c', 'cd', 'd']
+        >>> get_unique_substrings('aaa')
         ['a', 'aa', 'aaa']
+        >>> get_unique_substrings('x')
+        ['x']
+        >>> get_unique_substrings('hello')
+        ['e', 'el', 'ell', 'ello', 'h', 'he', 'hel', 'hell', 'hello', 'l', 'll', 'llo', 'lo', 'o']
     """
     # Handle empty string case
     if not s:
         return []
     
-    # Use a set to store unique substrings
+    # Use a set to ensure uniqueness
     unique_substrings = set()
     
     # Generate all possible substrings
