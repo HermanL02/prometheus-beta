@@ -38,3 +38,9 @@ def test_unique_substrings_long_string():
                 'lo', 
                 'o']
     assert sorted(result) == sorted(expected)
+
+def test_unique_substrings_comprehensive_case():
+    """Test unique substrings with different input scenarios."""
+    result = get_unique_substrings('abcd')
+    expected = ['a', 'ab', 'abc', 'abcd', 'b', 'bc', 'bcd', 'c', 'cd', 'd']
+    assert sorted(result) == expected

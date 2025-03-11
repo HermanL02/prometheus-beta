@@ -15,6 +15,14 @@ def get_unique_substrings(s: str) -> List[str]:
         ['a', 'ab', 'abc', 'abcb', 'b', 'bc', 'bcb', 'c', 'cb']
         >>> get_unique_substrings('')
         []
+        >>> get_unique_substrings('abcd')
+        ['a', 'ab', 'abc', 'abcd', 'b', 'bc', 'bcd', 'c', 'cd', 'd']
+        >>> get_unique_substrings('aaa')
+        ['a', 'aa', 'aaa']
+        >>> get_unique_substrings('x')
+        ['x']
+        >>> get_unique_substrings('hello')
+        ['e', 'el', 'ell', 'ello', 'h', 'he', 'hel', 'hell', 'hello', 'l', 'll', 'llo', 'lo', 'o']
     """
     # Handle empty string case
     if not s:
